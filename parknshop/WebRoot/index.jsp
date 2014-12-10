@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="top">
 			<div class="topList">
 				<div class="tUserName tleft"><span>Hi </span><a>UserName</a></div>
-				<div class="tLoginRegist tleft"><a href="login!gotoLogin.action">Login</a><span>&nbsp;&nbsp; </span><a>Regist</a></div>
+				<div class="tLoginRegist tleft"><a href="login!gotoLogin.action">Login</a><span>&nbsp;&nbsp; </span><a href="login!gotoRegist.action">Regist</a></div>
 				<div class="tMyOrder tleft"><a>MyOrderList</a></div>
 				<div class="tFavor tleft"><a>FavoriteSite</a></div>
 				<!--

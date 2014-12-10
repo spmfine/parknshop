@@ -98,5 +98,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xmlschema-core-2.0.3.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.3.15.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jtds-1.2.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.mail.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

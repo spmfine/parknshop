@@ -54,7 +54,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	request.send(null);
      }
 
-</script>
+</script> 
+    
+    
+<%
+	String name = null;
+	String pass = null;
+	Cookie[] c = request.getCookies();
+	for(Cookie t:c){
+	
+		if(t.getName().equals("username"))
+			name=t.getValue();
+		if(t.getName().equals("password"))
+			pass=t.getValue();
+	}
+ %>
+       
      
 <body class="templatemo-bg-gray">
 
@@ -99,15 +114,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<div class="col-md-12">
 				   <h1 class="margin-bottom-15">Login </h1>
 				   
-				   <form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form"  action="login!loginC.action" method="post" onSubmit="" >		
+				   <form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form"  action="login!loginC.action" method="post">		
 				   		
 			        <div class="form-group">
 			          <div class="col-xs-12">		            
 			            <div class="control-wrapper">
 			            	<label for="username" class="control-label fa-label"><i class="fa fa-user fa-medium"></i></label>
-			            	
+			            	<%
+			            		if(name==null){
+			            	 %>
 			            	<input type="text" name="username" class="form-control" id="username" placeholder="Username/Mobilenumber/Mailbox">
-			            	
+			            	<% 
+			            		}else{
+			            	%>
+			            	<input type="text" name="username" class="form-control" id="username" value=<%=name %> />
+			            	<%
+			            		}
+			            	 %>
 			            </div>		            	            
 			          </div>              
 			        </div>
@@ -115,9 +138,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			          <div class="col-md-12">
 			          	<div class="control-wrapper">
 			            	<label for="password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
-			            	
+			            	<%
+			            		if(pass==null){
+			            	 %>
 			            	<input type="password" name="password" class="form-control" id="password" placeholder="Password">
-			            	
+			            	<% 
+			            		}else{
+			            	%>
+			            	<input type="password" name="password" class="form-control" id="password" value=<%=pass %> />
+			            	<%
+			            		}
+			            	 %>
 			            </div>
 			          </div>
 			        </div>
@@ -126,11 +157,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		             	<div class="checkbox control-wrapper">
 		                	<label>
 		                	
-		                  		<input type="checkbox"> Remember password
+		                  		<input type="checkbox" name="remember" value="remember"> Remember password
 		                  		
 	                		</label>
 	                		
-	                		<a href="forgot-password.html" class="text-right pull-right">Forgot password?</a>
+	                		<a href="login!gotoForgetPassword.action" class="text-right pull-right">Forgot password?</a>
 	                		
 		              	</div>
 			          </div>
@@ -139,7 +170,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		             	<div class="checkbox control-wrapper">
 		                	<label for="password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
 		                	
-		                	<input  type="text"   id="input1" style="margin-left:30px;width: 120px" />
+		                	<input  type="text"  name="checksum" id="input1" style="margin-left:30px;width: 120px" />
 		                	
 						    <img src="login!gotoCheckSum.action" id="checkCode" class="unchanged" style="width: 60px " />  
 						    
@@ -154,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			          	
 			          		<input type="submit" value="Login" class="btn btn-primary btn-lg btn-block"  >
 			          		
-			          		<a href="regist.html" class="text-right pull-right"><h4>GoRegist <i class="fa fa-arrow-circle-o-right"></i></h4></a>
+			          		<a href="login!gotoRegist.action" class="text-right pull-right"><h4>GoRegist <i class="fa fa-arrow-circle-o-right"></i></h4></a>
 			          		
 			          	</div>
 			          </div>
