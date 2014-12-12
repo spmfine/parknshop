@@ -13,11 +13,11 @@
 		 http://www.springframework.org/schema/context 
 		 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	 
-<!--      <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+ <!--     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
      	<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/****" />
-		<property name="user" value="****" />
-		<property name="password" value="****" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Shop1" />
+		<property name="user" value="root" />
+		<property name="password" value="123456" />
      </bean> -->
      
 	 
