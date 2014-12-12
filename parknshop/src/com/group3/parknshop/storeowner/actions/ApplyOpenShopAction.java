@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Scope("prototype")
 @ParentPackage(value="struts-default")
 @Results({
-	@Result(name="succe",value="/WEB-INF/index/success.jsp"),
+	@Result(name="success",value="/WEB-INF/index/success.jsp"),
 })
 public class ApplyOpenShopAction extends ActionSupport {
 
