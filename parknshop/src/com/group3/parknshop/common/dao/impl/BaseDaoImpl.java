@@ -50,7 +50,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
        // this.persistentClass = entityClass;  
     	ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();  
     	clazz = (Class<T>) type.getActualTypeArguments()[0];  
-    	System.out.println("DAOµÄÕæÊµÊµÏÖÀàÊÇ£º" + this.clazz.getName()); 
+    	System.out.println("DAOçš„çœŸå®å®ç°ç±»æ˜¯ï¼š" + this.clazz.getName()); 
     }  */
  
     /**  
@@ -118,13 +118,13 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
    }
 
 	/**
-	 * °´Criteria·ÖÒ³²éÑ¯.
-	 * @param page ·ÖÒ³²ÎÊı.
-	 * @param criterions ÊıÁ¿¿É±äµÄCriterion.
-	 * @return ·ÖÒ³²éÑ¯½á¹û.¸½´ø½á¹ûÁĞ±í¼°ËùÓĞ²éÑ¯ÊäÈë²ÎÊı.
+	 * æŒ‰Criteriaåˆ†é¡µæŸ¥è¯¢.
+	 * @param page åˆ†é¡µå‚æ•°.
+	 * @param criterions æ•°é‡å¯å˜çš„Criterion.
+	 * @return åˆ†é¡µæŸ¥è¯¢ç»“æœ.é™„å¸¦ç»“æœåˆ—è¡¨åŠæ‰€æœ‰æŸ¥è¯¢è¾“å…¥å‚æ•°.
 	 */
 	public Page<T> findPage(final Page<T> page, final Criterion... criterions) {
-		Assert.notNull(page, "page²»ÄÜÎª¿Õ");
+		Assert.notNull(page, "pageä¸èƒ½ä¸ºç©º");
 		Criteria c = createCriteria(criterions);
 		if (page.isAutoCount()) {
 			long totalCount = countCriteriaResult(c);
@@ -137,9 +137,9 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * ¸ù¾İCriterionÌõ¼ş´´½¨Criteria.
-	 * Óëfind()º¯Êı¿É½øĞĞ¸ü¼ÓÁé»îµÄ²Ù×÷.
-	 * @param criterions ÊıÁ¿¿É±äµÄCriterion.
+	 * æ ¹æ®Criterionæ¡ä»¶åˆ›å»ºCriteria.
+	 * ä¸find()å‡½æ•°å¯è¿›è¡Œæ›´åŠ çµæ´»çš„æ“ä½œ.
+	 * @param criterions æ•°é‡å¯å˜çš„Criterion.
 	 */
 	public Criteria createCriteria(final Criterion... criterions) {
 		Criteria criteria = getSession().createCriteria(clazz);
@@ -150,12 +150,12 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * Ö´ĞĞcount²éÑ¯»ñµÃ±¾´ÎCriteria²éÑ¯ËùÄÜ»ñµÃµÄ¶ÔÏó×ÜÊı.
+	 * æ‰§è¡ŒcountæŸ¥è¯¢è·å¾—æœ¬æ¬¡CriteriaæŸ¥è¯¢æ‰€èƒ½è·å¾—çš„å¯¹è±¡æ€»æ•°.
 	 */
 	@SuppressWarnings("unchecked")
 	protected long countCriteriaResult(final Criteria c) {
 		CriteriaImpl impl = (CriteriaImpl) c;
-		// ÏÈ°ÑProjection¡¢ResultTransformer¡¢OrderByÈ¡³öÀ´,Çå¿ÕÈıÕßºóÔÙÖ´ĞĞCount²Ù×÷
+		// å…ˆæŠŠProjectionã€ResultTransformerã€OrderByå–å‡ºæ¥,æ¸…ç©ºä¸‰è€…åå†æ‰§è¡ŒCountæ“ä½œ
 		Projection projection = impl.getProjection();
 		ResultTransformer transformer = impl.getResultTransformer();
 		List<CriteriaImpl.OrderEntry> orderEntries = null;
@@ -163,9 +163,9 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 			orderEntries = (List) ReflectionUtils.getFieldValue(impl, "orderEntries");
 			ReflectionUtils.setFieldValue(impl, "orderEntries", new ArrayList());
 		} catch (Exception e) {
-			//logger.error("²»¿ÉÄÜÅ×³öµÄÒì³£:{}", e.getMessage());
+			//logger.error("ä¸å¯èƒ½æŠ›å‡ºçš„å¼‚å¸¸:{}", e.getMessage());
 		}
-		// Ö´ĞĞCount²éÑ¯
+		// æ‰§è¡ŒCountæŸ¥è¯¢
 		Long totalCountObject = null ;
 		try{
 			totalCountObject = (Long) c.setProjection(Projections.rowCount()).uniqueResult();
@@ -173,7 +173,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 			totalCountObject = Long.parseLong(new String(c.setProjection(Projections.rowCount()).uniqueResult().toString()));
 		}
 		long totalCount = (totalCountObject != null) ? totalCountObject : 0;
-		// ½«Ö®Ç°µÄProjection,ResultTransformerºÍOrderByÌõ¼şÖØĞÂÉè»ØÈ¥
+		// å°†ä¹‹å‰çš„Projection,ResultTransformerå’ŒOrderByæ¡ä»¶é‡æ–°è®¾å›å»
 		c.setProjection(projection);
 
 		if (projection == null) {
@@ -185,23 +185,23 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 		try {
 			ReflectionUtils.setFieldValue(impl, "orderEntries", orderEntries);
 		} catch (Exception e) {
-			//logger.error("²»¿ÉÄÜÅ×³öµÄÒì³£:{}", e.getMessage());
+			//logger.error("ä¸å¯èƒ½æŠ›å‡ºçš„å¼‚å¸¸:{}", e.getMessage());
 		}
 		return totalCount;
 	}
 	
 	/**
-	 * ÉèÖÃ·ÖÒ³²ÎÊıµ½Criteria¶ÔÏó,¸¨Öúº¯Êı.
+	 * è®¾ç½®åˆ†é¡µå‚æ•°åˆ°Criteriaå¯¹è±¡,è¾…åŠ©å‡½æ•°.
 	 */
 	protected Criteria setPageParameterToCriteria(final Criteria c, final Page<T> page) {
 		Assert.isTrue(page.getPageSize() > 0, "Page Size must larger than zero");
-		//hibernateµÄfirstResultµÄĞòºÅ´Ó0¿ªÊ¼
+		//hibernateçš„firstResultçš„åºå·ä»0å¼€å§‹
 		c.setFirstResult(page.getFirst() - 1);
 		c.setMaxResults(page.getPageSize());
 		if (page.isOrderBySetted()) {
 			String[] orderByArray = StringUtils.split(page.getOrderBy(), ',');
 			String[] orderArray = StringUtils.split(page.getOrder(), ',');
-			Assert.isTrue(orderByArray.length == orderArray.length, "·ÖÒ³¶àÖØÅÅĞò²ÎÊıÖĞ,ÅÅĞò×Ö¶ÎÓëÅÅĞò·½ÏòµÄ¸öÊı²»ÏàµÈ");
+			Assert.isTrue(orderByArray.length == orderArray.length, "åˆ†é¡µå¤šé‡æ’åºå‚æ•°ä¸­,æ’åºå­—æ®µä¸æ’åºæ–¹å‘çš„ä¸ªæ•°ä¸ç›¸ç­‰");
 			for (int i = 0; i < orderByArray.length; i++) {
 				if (Page.ASC.equals(orderArray[i])) {
 					c.addOrder(Order.asc(orderByArray[i]));
@@ -216,7 +216,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	
 	private String prepareCountHql(String orgHql) {
 		String fromHql = orgHql;
-		//select×Ó¾äÓëorder by×Ó¾ä»áÓ°Ïìcount²éÑ¯,½øĞĞ¼òµ¥µÄÅÅ³ı.
+		//selectå­å¥ä¸order byå­å¥ä¼šå½±å“countæŸ¥è¯¢,è¿›è¡Œç®€å•çš„æ’é™¤.
 		fromHql = "from " + StringUtils.substringAfter(fromHql, "from");
 		fromHql = StringUtils.substringBefore(fromHql, "order by");
 		String countHql = "select count(*) " + fromHql;
@@ -224,13 +224,13 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * ¸ù¾İ²éÑ¯HQLÓë²ÎÊıÁĞ±í´´½¨Query¶ÔÏó.
-	 * Óëfind()º¯Êı¿É½øĞĞ¸ü¼ÓÁé»îµÄ²Ù×÷.
+	 * æ ¹æ®æŸ¥è¯¢HQLä¸å‚æ•°åˆ—è¡¨åˆ›å»ºQueryå¯¹è±¡.
+	 * ä¸find()å‡½æ•°å¯è¿›è¡Œæ›´åŠ çµæ´»çš„æ“ä½œ.
 	 * 
-	 * @param values ÊıÁ¿¿É±äµÄ²ÎÊı,°´Ë³Ğò°ó¶¨.
+	 * @param values æ•°é‡å¯å˜çš„å‚æ•°,æŒ‰é¡ºåºç»‘å®š.
 	 */
 	public Query createQuery(final String queryString, final Object... values) {
-		Assert.hasText(queryString, "queryString²»ÄÜÎª¿Õ");
+		Assert.hasText(queryString, "queryStringä¸èƒ½ä¸ºç©º");
 		Query query = getSession().createQuery(queryString);
 		if (values != null) {
 			for (int i = 0; i < values.length; i++) {
@@ -241,18 +241,18 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * °´HQL²éÑ¯Î¨Ò»¶ÔÏó.
+	 * æŒ‰HQLæŸ¥è¯¢å”¯ä¸€å¯¹è±¡.
 	 * 
-	 * @param values ÊıÁ¿¿É±äµÄ²ÎÊı,°´Ë³Ğò°ó¶¨.
+	 * @param values æ•°é‡å¯å˜çš„å‚æ•°,æŒ‰é¡ºåºç»‘å®š.
 	 */
 	public <X> X findUnique(final String hql, final Object... values) {
 		return (X) createQuery(hql, values).uniqueResult();
 	}
 	
 	/**
-	 * Ö´ĞĞcount²éÑ¯»ñµÃ±¾´ÎHql²éÑ¯ËùÄÜ»ñµÃµÄ¶ÔÏó×ÜÊı.
+	 * æ‰§è¡ŒcountæŸ¥è¯¢è·å¾—æœ¬æ¬¡HqlæŸ¥è¯¢æ‰€èƒ½è·å¾—çš„å¯¹è±¡æ€»æ•°.
 	 * 
-	 * ±¾º¯ÊıÖ»ÄÜ×Ô¶¯´¦Àí¼òµ¥µÄhqlÓï¾ä,¸´ÔÓµÄhql²éÑ¯ÇëÁíĞĞ±àĞ´countÓï¾ä²éÑ¯.
+	 * æœ¬å‡½æ•°åªèƒ½è‡ªåŠ¨å¤„ç†ç®€å•çš„hqlè¯­å¥,å¤æ‚çš„hqlæŸ¥è¯¢è¯·å¦è¡Œç¼–å†™countè¯­å¥æŸ¥è¯¢.
 	 */
 	protected long countHqlResult(final String hql, final Object... values) {
 		String countHql = prepareCountHql(hql);
@@ -266,27 +266,27 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	
 
 	/**
-	 * ÉèÖÃ·ÖÒ³²ÎÊıµ½Query¶ÔÏó,¸¨Öúº¯Êı.
+	 * è®¾ç½®åˆ†é¡µå‚æ•°åˆ°Queryå¯¹è±¡,è¾…åŠ©å‡½æ•°.
 	 */
 	protected Query setPageParameterToQuery(final Query q, final Page<T> page) {
 		Assert.isTrue(page.getPageSize() > 0, "Page Size must larger than zero");
-		//hibernateµÄfirstResultµÄĞòºÅ´Ó0¿ªÊ¼
+		//hibernateçš„firstResultçš„åºå·ä»0å¼€å§‹
 		q.setFirstResult(page.getFirst() - 1);
 		q.setMaxResults(page.getPageSize());
 		return q;
 	}
 	
 	/**
-	 * °´HQL·ÖÒ³²éÑ¯.
+	 * æŒ‰HQLåˆ†é¡µæŸ¥è¯¢.
 	 * 
-	 * @param page ·ÖÒ³²ÎÊı. ×¢Òâ²»Ö§³ÖÆäÖĞµÄorderBy²ÎÊı.
-	 * @param hql hqlÓï¾ä.
-	 * @param values ÊıÁ¿¿É±äµÄ²éÑ¯²ÎÊı,°´Ë³Ğò°ó¶¨.
+	 * @param page åˆ†é¡µå‚æ•°. æ³¨æ„ä¸æ”¯æŒå…¶ä¸­çš„orderByå‚æ•°.
+	 * @param hql hqlè¯­å¥.
+	 * @param values æ•°é‡å¯å˜çš„æŸ¥è¯¢å‚æ•°,æŒ‰é¡ºåºç»‘å®š.
 	 * 
-	 * @return ·ÖÒ³²éÑ¯½á¹û, ¸½´ø½á¹ûÁĞ±í¼°ËùÓĞ²éÑ¯ÊäÈë²ÎÊı.
+	 * @return åˆ†é¡µæŸ¥è¯¢ç»“æœ, é™„å¸¦ç»“æœåˆ—è¡¨åŠæ‰€æœ‰æŸ¥è¯¢è¾“å…¥å‚æ•°.
 	 */
 	public Page<T> findPage(Page<T> page, String hql, Object... values) {
-		Assert.notNull(page, "page²»ÄÜÎª¿Õ");
+		Assert.notNull(page, "pageä¸èƒ½ä¸ºç©º");
 		Query q = createQuery(hql, values);
 		if (page.isAutoCount()) {
 			long totalCount = countHqlResult(hql, values);
@@ -299,17 +299,17 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * °´HQL·ÖÒ³²éÑ¯.
+	 * æŒ‰HQLåˆ†é¡µæŸ¥è¯¢.
 	 * 
-	 * @param page ·ÖÒ³²ÎÊı. ×¢Òâ²»Ö§³ÖÆäÖĞµÄorderBy²ÎÊı.
-	 * @param hql hqlÓï¾ä.
-	 * @param values ÃüÃû²ÎÊı,°´Ãû³Æ°ó¶¨.
+	 * @param page åˆ†é¡µå‚æ•°. æ³¨æ„ä¸æ”¯æŒå…¶ä¸­çš„orderByå‚æ•°.
+	 * @param hql hqlè¯­å¥.
+	 * @param values å‘½åå‚æ•°,æŒ‰åç§°ç»‘å®š.
 	 * 
-	 * @return ·ÖÒ³²éÑ¯½á¹û, ¸½´ø½á¹ûÁĞ±í¼°ËùÓĞ²éÑ¯ÊäÈë²ÎÊı.
+	 * @return åˆ†é¡µæŸ¥è¯¢ç»“æœ, é™„å¸¦ç»“æœåˆ—è¡¨åŠæ‰€æœ‰æŸ¥è¯¢è¾“å…¥å‚æ•°.
 	 */
 	@SuppressWarnings("unchecked")
 	public Page<T> findPage(final Page<T> page, final String hql, final Map<String, ?> values) {
-		Assert.notNull(page, "page²»ÄÜÎª¿Õ");
+		Assert.notNull(page, "pageä¸èƒ½ä¸ºç©º");
 		Query q = createQuery(hql, values);
 		if (page.isAutoCount()) {
 			long totalCount = countHqlResult(hql, values);
@@ -322,13 +322,13 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * ¸ù¾İ²éÑ¯HQLÓë²ÎÊıÁĞ±í´´½¨Query¶ÔÏó.
-	 * Óëfind()º¯Êı¿É½øĞĞ¸ü¼ÓÁé»îµÄ²Ù×÷.
+	 * æ ¹æ®æŸ¥è¯¢HQLä¸å‚æ•°åˆ—è¡¨åˆ›å»ºQueryå¯¹è±¡.
+	 * ä¸find()å‡½æ•°å¯è¿›è¡Œæ›´åŠ çµæ´»çš„æ“ä½œ.
 	 * 
-	 * @param values ÃüÃû²ÎÊı,°´Ãû³Æ°ó¶¨.
+	 * @param values å‘½åå‚æ•°,æŒ‰åç§°ç»‘å®š.
 	 */
 	public Query createQuery(final String queryString, final Map<String, ?> values) {
-		Assert.hasText(queryString, "queryString²»ÄÜÎª¿Õ");
+		Assert.hasText(queryString, "queryStringä¸èƒ½ä¸ºç©º");
 		Query query = getSession().createQuery(queryString);
 		if (values != null) {
 			query.setProperties(values);
@@ -337,9 +337,9 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * Ö´ĞĞcount²éÑ¯»ñµÃ±¾´ÎHql²éÑ¯ËùÄÜ»ñµÃµÄ¶ÔÏó×ÜÊı.
+	 * æ‰§è¡ŒcountæŸ¥è¯¢è·å¾—æœ¬æ¬¡HqlæŸ¥è¯¢æ‰€èƒ½è·å¾—çš„å¯¹è±¡æ€»æ•°.
 	 * 
-	 * ±¾º¯ÊıÖ»ÄÜ×Ô¶¯´¦Àí¼òµ¥µÄhqlÓï¾ä,¸´ÔÓµÄhql²éÑ¯ÇëÁíĞĞ±àĞ´countÓï¾ä²éÑ¯.
+	 * æœ¬å‡½æ•°åªèƒ½è‡ªåŠ¨å¤„ç†ç®€å•çš„hqlè¯­å¥,å¤æ‚çš„hqlæŸ¥è¯¢è¯·å¦è¡Œç¼–å†™countè¯­å¥æŸ¥è¯¢.
 	 */
 	protected long countHqlResult(final String hql, final Map<String, ?> values) {
 		String countHql = prepareCountHql(hql);
@@ -353,36 +353,36 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	/**
-	 * °´HQL²éÑ¯Î¨Ò»¶ÔÏó.
+	 * æŒ‰HQLæŸ¥è¯¢å”¯ä¸€å¯¹è±¡.
 	 * 
-	 * @param values ÃüÃû²ÎÊı,°´Ãû³Æ°ó¶¨.
+	 * @param values å‘½åå‚æ•°,æŒ‰åç§°ç»‘å®š.
 	 */
 	public <X> X findUnique(final String hql, final Map<String, ?> values) {
 		return (X) createQuery(hql, values).uniqueResult();
 	}
 
-	/******************¸ù¾İsqlÓï¾ä·ÖÒ³²éÑ¯**************************/
+	/******************æ ¹æ®sqlè¯­å¥åˆ†é¡µæŸ¥è¯¢**************************/
 	
 	 /**
-     * °´SQL²éÑ¯¶ÔÏóÁĞ±í.
+     * æŒ‰SQLæŸ¥è¯¢å¯¹è±¡åˆ—è¡¨.
      * 
      * @param values
-     *            ÊıÁ¿¿É±äµÄ²ÎÊı,°´Ë³Ğò°ó¶¨.
+     *            æ•°é‡å¯å˜çš„å‚æ•°,æŒ‰é¡ºåºç»‘å®š.
      */
     public <X> List<X> findArrayObjBySQL(final String sql, final Object... values) {
         return createSQLQuery(sql, values).list();
     }
 	  /**
-     * ¸ù¾İ²éÑ¯SQLÓë²ÎÊıÁĞ±í´´½¨SQLQuery¶ÔÏó.
+     * æ ¹æ®æŸ¥è¯¢SQLä¸å‚æ•°åˆ—è¡¨åˆ›å»ºSQLQueryå¯¹è±¡.
      * 
-     * ±¾Àà·â×°µÄfind()º¯ÊıÈ«²¿Ä¬ÈÏ·µ»Ø¶ÔÏóÀàĞÍÎªT,µ±²»ÎªTÊ±Ê¹ÓÃ±¾º¯Êı.
+     * æœ¬ç±»å°è£…çš„find()å‡½æ•°å…¨éƒ¨é»˜è®¤è¿”å›å¯¹è±¡ç±»å‹ä¸ºT,å½“ä¸ä¸ºTæ—¶ä½¿ç”¨æœ¬å‡½æ•°.
      * 
      * @param values
-     *            ÊıÁ¿¿É±äµÄ²ÎÊı,°´Ë³Ğò°ó¶¨.
+     *            æ•°é‡å¯å˜çš„å‚æ•°,æŒ‰é¡ºåºç»‘å®š.
      */
     public SQLQuery createSQLQuery(final String queryString,
             final Object... values) {
-        Assert.hasText(queryString, "queryString²»ÄÜÎª¿Õ");
+        Assert.hasText(queryString, "queryStringä¸èƒ½ä¸ºç©º");
         SQLQuery query = getSession().createSQLQuery(queryString);
         if (values != null) {
             for (int i = 0; i < values.length; i++) {
@@ -394,7 +394,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	
 	public Page<T> findPageBySql(Page<T> page, String sql, Map<String, ?> values) {
 		// TODO Auto-generated method stub
-		Assert.notNull(page, "page²»ÄÜÎª¿Õ");
+		Assert.notNull(page, "pageä¸èƒ½ä¸ºç©º");
         SQLQuery q = createSQLQuery(sql, values);
         if (page.isAutoCount()) {
             long totalCount = countSQLResult(sql, values);
@@ -407,14 +407,14 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	 /**
-     * ¸ù¾İ²éÑ¯SqlÓë²ÎÊıÁĞ±í´´½¨SqlQuery¶ÔÏó.
+     * æ ¹æ®æŸ¥è¯¢Sqlä¸å‚æ•°åˆ—è¡¨åˆ›å»ºSqlQueryå¯¹è±¡.
      * 
      * @param values
-     *            ÃüÃû²ÎÊı,°´Ãû³Æ°ó¶¨.
+     *            å‘½åå‚æ•°,æŒ‰åç§°ç»‘å®š.
      */
     public SQLQuery createSQLQuery(final String queryString,
             final Map<String, ?> values) {
-        Assert.hasText(queryString, "queryString²»ÄÜÎª¿Õ");
+        Assert.hasText(queryString, "queryStringä¸èƒ½ä¸ºç©º");
         SQLQuery query = getSession().createSQLQuery(queryString);
         if (values != null) {
             query.setProperties(values);
@@ -422,11 +422,11 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
         return query;
     }
     /**
-     * Ö´ĞĞcount²éÑ¯»ñµÃ±¾´Îsql²éÑ¯ËùÄÜ»ñµÃµÄ¶ÔÏó×ÜÊı. ±¾º¯ÊıÖ»ÄÜ×Ô¶¯´¦Àí¼òµ¥µÄhqlÓï¾ä,¸´ÔÓµÄhql²éÑ¯ÇëÁíĞĞ±àĞ´countÓï¾ä²éÑ¯.
+     * æ‰§è¡ŒcountæŸ¥è¯¢è·å¾—æœ¬æ¬¡sqlæŸ¥è¯¢æ‰€èƒ½è·å¾—çš„å¯¹è±¡æ€»æ•°. æœ¬å‡½æ•°åªèƒ½è‡ªåŠ¨å¤„ç†ç®€å•çš„hqlè¯­å¥,å¤æ‚çš„hqlæŸ¥è¯¢è¯·å¦è¡Œç¼–å†™countè¯­å¥æŸ¥è¯¢.
      */
     protected long countSQLResult(final String sql, Map<String, ?> values) {
         String fromHql = sql.toLowerCase();
-        // select×Ó¾äÓëorder by×Ó¾ä»áÓ°Ïìcount²éÑ¯,½øĞĞ¼òµ¥µÄÅÅ³ı.
+        // selectå­å¥ä¸order byå­å¥ä¼šå½±å“countæŸ¥è¯¢,è¿›è¡Œç®€å•çš„æ’é™¤.
         fromHql = "from " + StringUtils.substringAfter(fromHql, "from");
         fromHql = StringUtils.substringBeforeLast(fromHql, "order by");
         String countSql = "select count(*) " + fromHql;
@@ -443,10 +443,10 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
     }
 
     /**
-     * °´SQL²éÑ¯Î¨Ò»¶ÔÏó.
+     * æŒ‰SQLæŸ¥è¯¢å”¯ä¸€å¯¹è±¡.
      * 
      * @param values
-     *            ÊıÁ¿¿É±äµÄ²ÎÊı,°´Ë³Ğò°ó¶¨.
+     *            æ•°é‡å¯å˜çš„å‚æ•°,æŒ‰é¡ºåºç»‘å®š.
      */
     public <X> X findUniqueBySQL(final String sql, Map<String, ?> values) {
         return (X) createSQLQuery(sql, values).uniqueResult();

@@ -1,0 +1,135 @@
+#pmain{
+	width: 1200px;
+	margin:auto;
+	
+}
+.p-m-logo{
+	height:40px;
+	width: 1200px;
+	border-bottom: 2px solid #CC3399;
+
+	margin-top:30px;
+}
+.p-m-logo img{
+	height: 40px;
+	width: 300px;
+}
+.p-m-logo ul{
+	float: right;
+	height: 40px;
+	
+}
+.p-m-logo ul li{
+	float: left;
+	padding-top: 10px;
+	color: #CC99CC;
+	width:200px;
+	line-height: 40px;
+	text-align: center;
+	list-style: none;
+}
+.p-m-payment{
+	margin: auto;
+	width: 1200px;
+	margin-top:30px;
+
+	
+}
+.p-m-p-1{
+	height: 40px;
+	width:1200px;
+	background: #F7F7F7;
+	
+}
+.p-m-p-1 span{
+	
+	line-height: 40px;
+	margin-left: 50px;
+	margin-right: 200px;
+	
+}
+.p-m-p-2{
+	height: 200px;
+	width: 1200px;
+	margin-top: 30px;
+	background:#F7F7F7 ;
+	padding-top: 20px;
+	
+}
+.p-m-p-2 div{
+	float: left;
+	height:200px ;
+	
+	border-right: 1px solid #CC3399;
+}
+.p-m-p-201{
+	width: 199px;
+		
+}
+.p-m-p-201 span{
+	margin-left: 50px;
+}
+.p-m-p-202{
+	width: 399px;
+}
+.p-m-p-202 ul li{
+	height: 30px;
+	line-height: 30px;
+	margin-left: 50px;
+	width:200px;
+	background: #CCCCCC;
+	margin-top: 20px;
+	padding-left: 50px;
+}
+.p-m-p-202 .payli-1{
+	
+	background: url(../images/banknotes-512.gif) no-repeat 0 0;
+}
+.p-m-p-202 .payli-2{
+	background: url(../images/visa_copyrighted-512.gif) no-repeat 0 0;
+}
+.p-m-p-202 .payli-3{
+	background: url(../images/paypal_copyrighted-512.gif) no-repeat 0 0;
+}
+.p-m-p-2 .p-m-p-203{
+	width: 599px;
+	margin-top: 20px;
+	border-right: none;
+}
+.p-m-p-203 ul li{
+	height: 30px;
+	width: 130px;
+	margin-left: 50px;
+	line-height: 30px;
+	margin-top: 10px;
+	 
+	
+}
+.p-m-p-203 ul{
+	float: left;
+}
+.p-m-p-203 ul li input{
+	margin-right: 5px;
+	position: relative;
+	top:-8px;
+}
+.p-m-p-203 ul li img{
+	height: 30px;
+	width: 100px;
+	
+}
+.p-m-p-3{
+	height: 80px;
+	width: 1200px;
+	background: #F7F7F7;
+	
+}
+.p-m-p-3 input{
+	margin-top: 20px;
+	float: right;
+	border: none;
+	height: 30px;
+	width: 300px;
+	background: #CC3399;
+	
+}

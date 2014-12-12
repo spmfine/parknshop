@@ -1,0 +1,31 @@
+#sear{
+float:left;
+width:1000px;
+height:900px;
+}
+#recommend{
+width:200px;
+height:900px;
+border:#D0D0D0 solid;
+}
+.search{
+border:#D0D0D0 solid 1px;
+margin:2px;
+float:left;
+}
+.blank10 {
+    clear: both;
+    display: block;
+    font-size: 1px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.adtext{
+
+height:68px;
+}
+.adimage{
+float:left;
+height:68px;
+}
