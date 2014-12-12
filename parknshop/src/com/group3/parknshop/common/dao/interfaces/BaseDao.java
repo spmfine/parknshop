@@ -7,7 +7,7 @@ import com.group3.parknshop.common.page.*;
 
 
 /**
- * Í¨ÓÃÊı¾İ³Ö¾Ã²ã
+ * é€šç”¨æ•°æ®æŒä¹…å±‚
  * 
  */
 public interface BaseDao<T> {
@@ -67,25 +67,25 @@ public interface BaseDao<T> {
     List<T> findByNamedQuery(String queryName, Map<String, Object> queryParams);  
     
     /**
-	 * °´Criteria·ÖÒ³²éÑ¯.
+	 * æŒ‰Criteriaåˆ†é¡µæŸ¥è¯¢.
 	 * 
-	 * @param page ·ÖÒ³²ÎÊı.
-	 * @param criterions ÊıÁ¿¿É±äµÄCriterion.
+	 * @param page åˆ†é¡µå‚æ•°.
+	 * @param criterions æ•°é‡å¯å˜çš„Criterion.
 	 * 
-	 * @return ·ÖÒ³²éÑ¯½á¹û.¸½´ø½á¹ûÁĞ±í¼°ËùÓĞ²éÑ¯ÊäÈë²ÎÊı.
+	 * @return åˆ†é¡µæŸ¥è¯¢ç»“æœ.é™„å¸¦ç»“æœåˆ—è¡¨åŠæ‰€æœ‰æŸ¥è¯¢è¾“å…¥å‚æ•°.
 	 */
 	public Page<T> findPage(final Page<T> page, final Criterion... criterions) ;
 	
 	public Page<T> findPage(final Page<T> page, final String hql,final Object... values);
 	
 	/**
-	 * °´HQL·ÖÒ³²éÑ¯.
+	 * æŒ‰HQLåˆ†é¡µæŸ¥è¯¢.
 	 * 
-	 * @param page ·ÖÒ³²ÎÊı. ×¢Òâ²»Ö§³ÖÆäÖĞµÄorderBy²ÎÊı.
-	 * @param hql hqlÓï¾ä.
-	 * @param values ÃüÃû²ÎÊı,°´Ãû³Æ°ó¶¨.
+	 * @param page åˆ†é¡µå‚æ•°. æ³¨æ„ä¸æ”¯æŒå…¶ä¸­çš„orderByå‚æ•°.
+	 * @param hql hqlè¯­å¥.
+	 * @param values å‘½åå‚æ•°,æŒ‰åç§°ç»‘å®š.
 	 * 
-	 * @return ·ÖÒ³²éÑ¯½á¹û, ¸½´ø½á¹ûÁĞ±í¼°ËùÓĞ²éÑ¯ÊäÈë²ÎÊı.
+	 * @return åˆ†é¡µæŸ¥è¯¢ç»“æœ, é™„å¸¦ç»“æœåˆ—è¡¨åŠæ‰€æœ‰æŸ¥è¯¢è¾“å…¥å‚æ•°.
 	 */
 	public Page<T> findPage(final Page<T> page, final String hql, final Map<String, ?> values);
 	

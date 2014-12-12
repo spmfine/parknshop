@@ -15,9 +15,9 @@ public class SendEmail {
 	
 	/**
 	 * 
-	 * @param emailAddress ÊÕ¼şÈËµØÖ·£¬¶à¸öÊÕ¼şÈËµØÖ·¼äÓÃ¡°,¡±¸ô¿ª£¬Æ´½ÓÆğÀ´
-	 * @param emailSubject ÓÊ¼şÖ÷Ìâ
-	 * @param emailContent ÓÊ¼şÄÚÈİ
+	 * @param emailAddress æ”¶ä»¶äººåœ°å€ï¼Œå¤šä¸ªæ”¶ä»¶äººåœ°å€é—´ç”¨â€œ,â€éš”å¼€ï¼Œæ‹¼æ¥èµ·æ¥
+	 * @param emailSubject é‚®ä»¶ä¸»é¢˜
+	 * @param emailContent é‚®ä»¶å†…å®¹
 	 */
 	public static Boolean sendEmail(String emailAddress,String emailSubject,String emailContent){
 		
