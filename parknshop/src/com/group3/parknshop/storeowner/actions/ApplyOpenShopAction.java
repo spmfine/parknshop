@@ -22,4 +22,8 @@ public class ApplyOpenShopAction extends ActionSupport {
 	@Resource( name = "applyOpenShopService" )
 	private IApplyOpenShopService applyOpenShopService ;
 
+	private void useless( )
+	{
+		String msg = "just for git to submit and push" ;
+	}
 }
