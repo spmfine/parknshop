@@ -34,8 +34,10 @@
         <property name="hibernateProperties">
 			<props>
 				<!--数据库方言配置，功能：告知hibernate所用的DBMS,然后hibernate会根据具体的DBMS生成优化的SQL语句
-				 <prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop> -->
-				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
+				-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop><!-- 在日志上是否打印出sql语句 -->
 				<prop key="hibernate.format_sql">true</prop><!-- 先格式化SQL语句，再打印 -->
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
