@@ -21,6 +21,9 @@ public class Users {
 	@Column(name="userPassword")
 	private String userPassword;
 	
+	@Column(name="tradePassword")
+	private String tradePassword;
+	
 	@Column(name="userEmail")
 	private String userEmail;
 	
@@ -38,7 +41,7 @@ public class Users {
 	private List<Address> address = new ArrayList<Address>(0);
 	
 	@Column(name="userBalance")
-	private Integer userBalance;
+	private Float userBalance;
 	
 	public List<Address> getAddress() {
 		return address;
@@ -104,11 +107,20 @@ public class Users {
 		this.userRealName = userRealName;
 	}
 
-	public Integer getUserBalance() {
+	public Float getUserBalance() {
 		return userBalance;
 	}
 
-	public void setUserBalance(Integer userBalance) {
+	public void setUserBalance(Float userBalance) {
 		this.userBalance = userBalance;
 	}
+
+	public String getTradePassword() {
+		return tradePassword;
+	}
+
+	public void setTradePassword(String tradePassword) {
+		this.tradePassword = tradePassword;
+	}
+	
 }

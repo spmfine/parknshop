@@ -29,6 +29,9 @@ public class Store {
 	@Column(name="storeLevel")
 	private Integer storeLevel;
 	
+	@Column(name="storeIncome")
+	private Float storeIncome;
+	
 	@Column(name="userId")
 	private Integer userId;
 	
@@ -37,6 +40,8 @@ public class Store {
 	@JoinColumn(name="storeId",updatable=true,insertable=true)
 	private List<Commodity> commodity = new ArrayList<Commodity>(0);
 
+	@Column(name="storeRate")
+	private Float storeRate;
 
 	public Integer getStoreId() {
 		return storeId;
@@ -85,6 +90,26 @@ public class Store {
 
 	public void setCommodity(List<Commodity> commodity) {
 		this.commodity = commodity;
+	}
+
+
+	public Float getStoreIncome() {
+		return storeIncome;
+	}
+
+
+	public void setStoreIncome(Float storeIncome) {
+		this.storeIncome = storeIncome;
+	}
+
+
+	public Float getStoreRate() {
+		return storeRate;
+	}
+
+
+	public void setStoreRate(Float storeRate) {
+		this.storeRate = storeRate;
 	}
 
 }

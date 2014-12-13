@@ -47,6 +47,12 @@ public class Orders {
 	@Column(name="commodityPrice")
 	private Float commodityPrice;
 	
+	@Column(name="commodityNumber")
+	private Integer commodityNumber;
+	
+	@Column(name="commodityTotalPrice")
+	private Float commodityTotalPrice;
+	
 	@Column(name="userId")
 	private Integer userId;
 	
@@ -167,4 +173,21 @@ public class Orders {
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
+
+	public Integer getCommodityNumber() {
+		return commodityNumber;
+	}
+
+	public void setCommodityNumber(Integer commodityNumber) {
+		this.commodityNumber = commodityNumber;
+	}
+
+	public Float getCommodityTotalPrice() {
+		return commodityTotalPrice;
+	}
+
+	public void setCommodityTotalPrice(Float commodityTotalPrice) {
+		this.commodityTotalPrice = commodityTotalPrice;
+	}
+	
 }

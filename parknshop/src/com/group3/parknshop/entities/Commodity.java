@@ -36,7 +36,7 @@ public class Commodity {
 	private Store store;
 
 	@Column(name="commodityPrice")
-	private Integer commodityPrice;
+	private Float commodityPrice;
 	
 	@Column(name="commodityNumber")
 	private Integer commodityNumber;
@@ -69,11 +69,11 @@ public class Commodity {
 		this.commodityName = commodityName;
 	}
 
-	public Integer getCommodityPrice() {
+	public Float getCommodityPrice() {
 		return commodityPrice;
 	}
 
-	public void setCommodityPrice(Integer commodityPrice) {
+	public void setCommodityPrice(Float commodityPrice) {
 		this.commodityPrice = commodityPrice;
 	}
 
