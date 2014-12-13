@@ -37,10 +37,6 @@ public class Users {
 	@JoinColumn(name="userId",insertable=true,updatable=true)
 	private List<Address> address = new ArrayList<Address>(0);
 	
-	@OneToMany(targetEntity=Order.class,fetch=FetchType.LAZY)
-	@JoinColumn(name="orderId",insertable=true,updatable=true)
-	private List<Order> order = new ArrayList<Order>(0);
-	
 	@Column(name="userBalance")
 	private Integer userBalance;
 	
@@ -114,13 +110,5 @@ public class Users {
 
 	public void setUserBalance(Integer userBalance) {
 		this.userBalance = userBalance;
-	}
-
-	public List<Order> getOrder() {
-		return order;
-	}
-
-	public void setOrder(List<Order> order) {
-		this.order = order;
 	}
 }

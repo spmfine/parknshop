@@ -38,6 +38,9 @@ public class Commodity {
 	@Column(name="commodityPrice")
 	private Integer commodityPrice;
 	
+	@Column(name="commodityNumber")
+	private Integer commodityNumber;
+	
 	@Column(name="commodityColor")
 	private String commodityColor;
 	
@@ -121,4 +124,13 @@ public class Commodity {
 	public void setCommoditySize(String commoditySize) {
 		this.commoditySize = commoditySize;
 	}
+
+	public Integer getCommodityNumber() {
+		return commodityNumber;
+	}
+
+	public void setCommodityNumber(Integer commodityNumber) {
+		this.commodityNumber = commodityNumber;
+	}
+	
 }
