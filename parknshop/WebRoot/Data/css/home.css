@@ -28,6 +28,7 @@ img.mainCarousel{
 	z-index: 2;
 }
 #carLeft{
+	z-index: 100;
 	background:  url(../images/lunBoLeft.gif) 0 0 ;
 }
 #carRight{
@@ -63,7 +64,12 @@ img.mainCarousel{
 	filter: alpha(opacity=80);
 	opacity: 0.8;
 	
-}	
+}
+#carPointer li:hover{
+	background: url(../images/lunBoPointer01.gif);
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
 
 
 	
@@ -107,7 +113,8 @@ img.mainCarousel{
 #mHotkey{
 	width: 1200px;
 	height: 90px;
-	background: #F7F7F7;
+	background: #CC3399;
+	color: #FFFFFF;
 	
 	
 }
@@ -172,7 +179,7 @@ img.mainCarousel{
 	height:32px;
 	width: 100px;	
 	background: #CC99CC;
-	color: #FFFFFF;
+	
 }
 
 .cFunctionSelectText{
@@ -219,9 +226,11 @@ img.mainCarousel{
 	list-style: none;
 	margin-top: 3px;
 	padding-left: 10px;
+	color: #000000;
 }
 
 
 #main a,#footer a{
 	font-weight: normal;
 }
+

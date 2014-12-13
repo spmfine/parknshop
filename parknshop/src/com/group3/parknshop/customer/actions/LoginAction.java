@@ -108,6 +108,8 @@ public class LoginAction extends ActionSupport{
 	 */
 	public String regist(){
 		
+		user.setUserBalance(0);
+		user.setUserType("b");
 		HttpServletRequest req = ServletActionContext.getRequest();
 		String checksum = req.getParameter("checksum");
 		String check = (String)req.getSession().getAttribute("checksum");

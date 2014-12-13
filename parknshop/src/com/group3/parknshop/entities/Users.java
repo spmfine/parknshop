@@ -1,5 +1,8 @@
 package com.group3.parknshop.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -27,8 +30,35 @@ public class Users {
 	@Column(name="userRealName")
 	private String userRealName;
 	
-	@Column(name="userAuthority")
-	private String userAuthority;
+	@Column(name="userType")
+	private String userType;
+	
+	@OneToMany(targetEntity=Address.class,fetch=FetchType.LAZY)
+	@JoinColumn(name="userId",insertable=true,updatable=true)
+	private List<Address> address = new ArrayList<Address>(0);
+	
+	@OneToMany(targetEntity=Order.class,fetch=FetchType.LAZY)
+	@JoinColumn(name="orderId",insertable=true,updatable=true)
+	private List<Order> order = new ArrayList<Order>(0);
+	
+	@Column(name="userBalance")
+	private Integer userBalance;
+	
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
 	public Integer getUserId() {
 		return userId;
@@ -78,11 +108,19 @@ public class Users {
 		this.userRealName = userRealName;
 	}
 
-	public String getUserAuthority() {
-		return userAuthority;
+	public Integer getUserBalance() {
+		return userBalance;
 	}
 
-	public void setUserAuthority(String userAuthority) {
-		this.userAuthority = userAuthority;
+	public void setUserBalance(Integer userBalance) {
+		this.userBalance = userBalance;
+	}
+
+	public List<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
 	}
 }

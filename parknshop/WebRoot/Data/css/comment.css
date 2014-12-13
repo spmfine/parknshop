@@ -3,6 +3,7 @@ body{
 	
 	background: #FFFFFF;
 	font-family: 'Sintony', sans-serif;
+	color: #CC3399;
 	
 	
 }
@@ -26,9 +27,13 @@ div.tleft{
 	margin-right: 30px;
 }
 div.tReft{
-	background: #FFFFFF;
+	
+	
 	float: right;
 	margin-left: 30px;
+	cursor: pointer;
+	
+	
 }
 div.topList div{
 	
@@ -64,6 +69,10 @@ ul.tUlFloat li{
 	background:#FFFFFF ;
 	list-style: none;
 	margin-bottom: 2px;
+	
+}
+ul.tUlFloat li:hover{
+	background:#CCCCCC ;
 	
 }
 
@@ -112,9 +121,12 @@ div.lMSearch .mSearchText{
 	width:390px;
 	border-style: none;
 	padding-left: 7px;
+	
+	
+	
+}
+.mSearchTextSite{
 	background: #FFFFFF url(../images/magnifier.gif) no-repeat 10px 8px;
-	
-	
 }
 div.lMSearch .mSearchSubmt{
 	border-style: none;
@@ -153,7 +165,7 @@ div.lMSearch .mSearchSubmt{
 .ChomeCart img{
 	height: 40px;
 	width: 40px;
-
+	cursor: pointer;
 	
 }
 .ChomeCart{
@@ -193,6 +205,7 @@ div.cartGoodschart span{
 	padding-left: 5px;
 	width: 300px;
 	z-index: 3;
+	display: none;
 }
 .Chomecartdetail span{
 	color: #CC99CC;
@@ -279,3 +292,7 @@ div.cartGoodschart span{
 .setLast{
 	border-right: none;
 }
+.display{
+	display: block;
+}
+

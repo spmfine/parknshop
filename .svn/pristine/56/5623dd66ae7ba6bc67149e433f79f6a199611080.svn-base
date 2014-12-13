@@ -1,0 +1,281 @@
+
+body{
+	
+	background: #FFFFFF;
+	font-family: 'Sintony', sans-serif;
+	
+	
+}
+/*
+ 该处是TopList的css
+ * */
+#top{
+	height: 30px;
+	background:#F7F7F7 ;
+}
+div.topList{
+	width: 1200px;
+	height: 30px;
+	
+	margin:auto;
+	
+	
+}
+div.tleft{
+	float: left;
+	margin-right: 30px;
+}
+div.tReft{
+	background: #FFFFFF;
+	float: right;
+	margin-left: 30px;
+}
+div.topList div{
+	
+	height: 30px;
+
+	position:relative;
+	
+}
+div.topList div a{
+	line-height: 30px;
+}
+div.topList .tUserName{
+	
+}
+div.topList .tUserName span{
+	font-size: 24px;
+	font-weight: 150px;
+	
+}
+.tUlFloat{
+	position: absolute;
+	display:none;
+	width:200px;
+	
+	
+}
+ul.tUlFloat{
+	background: #FFFFFF;
+	#border:1px solid #CCCCCC;
+	
+}
+ul.tUlFloat li{
+	background:#FFFFFF ;
+	list-style: none;
+	margin-bottom: 2px;
+	
+}
+
+
+/*
+ 该处是logoSearch的内容
+ * */
+#main{
+	margin: auto;
+	width: 1200px;
+	margin-top:30px ;
+	
+	
+}
+#logo{
+	height: 50px;
+	background: #CC3399;
+}
+#logo div{
+	float: left;
+	
+}
+
+#logo div.lLogoImage {
+	height:50px;
+	width:210px;
+	
+}
+#logo div.lMSearch{
+	margin-top:10px;
+	float: right;
+	height: 30px;
+	
+	border-left:1px solid #FFFFFF;
+	border-top:1px solid #FFFFFF;
+	border-bottom:1px solid #FFFFFF;
+	border-right: 0px;
+	
+	background: #CC3399;
+	
+	width:470px;
+	
+}
+div.lMSearch .mSearchText{
+	height:28px;
+	width:390px;
+	border-style: none;
+	padding-left: 7px;
+	background: #FFFFFF url(../images/magnifier.gif) no-repeat 10px 8px;
+	
+	
+}
+div.lMSearch .mSearchSubmt{
+	border-style: none;
+	background: #CC3399;
+	height: 30px;
+	width: 90px;
+	margin-left:-26px ;
+	color: #FFFFFF;
+	
+}
+/*
+ 该处是对导航条的样式
+ * */
+#nav{
+	height: 40px;
+	
+	
+}
+#nav ul li{
+	list-style: none;
+	float: left;
+	background: red;
+	line-height: 40px;
+	width: 120px;
+	text-align: center;
+	background:url(../images/line.gif) no-repeat 0 0 ;
+	
+}
+
+
+
+
+/*
+ cart
+ * */
+.ChomeCart img{
+	height: 40px;
+	width: 40px;
+
+	
+}
+.ChomeCart{
+	float: right;
+	margin-right: 20px;
+	line-height: 40px;
+	
+	width: 100px;
+	height: 40px;
+	position: relative;
+}
+.cartGoods{
+	height: 40px;
+	
+}
+.cartGoods div{
+	margin-top: 10px;
+	float: left;
+	margin-right: 20px;
+	height: 40px;
+	color: #000000;
+	
+}
+.cartGoodsImage img{
+	height:40px ;
+	width: 40px;
+}
+div.cartGoodschart span{
+	color: #CC3399;
+	font-weight: bold;
+}
+
+.Chomecartdetail{
+	position: absolute;
+	background: #FFFFFF;
+	margin-top: -15px;
+	padding-left: 5px;
+	width: 300px;
+	z-index: 3;
+}
+.Chomecartdetail span{
+	color: #CC99CC;
+}
+.Chomecartdetail input{
+	border-style: none;
+	height: 30px;
+	width: 200px;
+	margin-left: 100px;
+	background: #CC3399;
+	color: #FFFFFF;
+}
+
+
+/*
+ * 
+ */
+/*
+ footer   部分的css样式
+ * */
+#footer{
+	
+	width: 1200px;
+	margin: auto;
+}
+#footerlist{
+	margin-top: 30px;
+	margin-bottom: 5px;
+	background: #F7F7F7;
+	border:1px solid #CCCCCC ;
+	width: 1200px;
+	height: 260px;
+	
+}
+#footerlist div{
+	margin-top: 60px;
+	width: 198px;
+	float: left;
+	
+	text-align: center;
+	
+	height: 150px;
+	
+	
+}
+.footerListdetail{
+	border-right: 2px solid #CCCCCC;
+}
+#footerlist div ul li{
+	list-style: none;
+}
+#footerImageList{
+	height: 30px;
+}
+#footerImageList div{
+	height: 30px;
+	width: 300px;
+	float: left;
+	background: #CCCCCC;
+}
+.footerLine{
+	position: relative;
+	top:30px;
+	margin: 5px;
+	height: 20px;
+	background: #F7F7F7;
+	text-align: center;
+}
+.footerLine div{
+	
+	margin: auto;
+	width: 1200px;
+	height: 20px;
+	text-align: right;
+}
+.footerLine div a{
+	font-size: 13px;
+}
+
+
+/*
+ * 为一些最后的元素去掉一些属性
+ */
+.setLast{
+	border-right: none;
+}

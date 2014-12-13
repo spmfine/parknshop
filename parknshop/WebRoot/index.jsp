@@ -76,8 +76,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="logo">
 				<div class="lLogoImage"><img src="Data/homeLogo.gif"/></div>
 				<div class="lMSearch">
-					<input class="mSearchText" type="text" />
-					<input type="submit" class="mSearchSubmt" value="search" />
+					<form action="shopping!search.action" method="post">
+						<input class="mSearchText" type="text" name="searchKeys" />
+						<input type="submit" class="mSearchSubmt" value="search" />
+					</form>
 				</div>
 			</div>
 			<div id="nav">
