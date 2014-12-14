@@ -16,18 +16,15 @@ public class CommodityService extends BaseDaoImpl implements ICommodityService {
 	private ICommodityDao iCommodityDao ;
 
 	public boolean addCommodity(Commodity commodity) {
-		// TODO Auto-generated method stub
-		return false;
+		return iCommodityDao.addCommodity(commodity) ;
 	}
 
 	public boolean updateCommodity(Commodity commodity) {
-		// TODO Auto-generated method stub
-		return false;
+		return iCommodityDao.updateCommodity(commodity) ;
 	}
 
 	public boolean deleteCommodity(Commodity commodity) {
-		// TODO Auto-generated method stub
-		return false;
+		return iCommodityDao.deleteCommodity(commodity) ;
 	}
 
 }
